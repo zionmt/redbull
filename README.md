@@ -1,4 +1,5 @@
 # redbull
 A panel with several useful commands.
-Please note this repository is used for the updater and installer and that you should not download the panel from here.
-This product is free to distribute and use, as long as you don't claim credit (eg. saying you made it) and distribute editted copies.
+Do not download the panel or updater from their repositories, download the installer found in "Releases" and run it to fully install.
+This product is free to distribute and use, as long as you don't distribute editted copies.
+Of course, you can edit it for private use.
