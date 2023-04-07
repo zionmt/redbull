@@ -25,12 +25,10 @@ echo   88P'  `d8b_,dPd8P' ?88    88P `?8bd88   88 ?88  ?88
 echo  d88     88b    88b  ,88b  d88,  d88?8(  d88  88b  88b                               
 echo d88'     `?888P'`?88P'`88bd88'`?88P'`?88P'?8b  88b  88b                              
 timeout /t 2 /nobreak >nul
-echo Welcome to the Redbull Panel v3.1.0
+echo Welcome to the Redbull Panel v4
 echo A fine release by KitchenerMT
-echo _______________________________________________________________________________________________
 timeout /t 1 /nobreak >nul
 :a
-echo.
 echo ______________________________
 echo.
 echo Notes
@@ -42,8 +40,7 @@ echo.
 echo Updates
 echo ______________________________
 echo.
-echo SSH integrated
-echo Slight menu overhaul
+echo Everything has been integrated into the main repo, except the menu storage. That will come soon.
 echo ______________________________
 echo.
 echo Menus
