@@ -15,12 +15,12 @@ if %a%==Update goto selfupdate
 git clone https://github.com/ifindu19/redbull.git
 move "redbull\Redbull Panel.bat" %cd%
 rmdir /s /q redbull
+exit
 
 :selfupdate
 git clone https://github.com/ifindu19/redbull.git
 move "redbull\Updater.bat" %cd%
 rmdir /s /q redbull
-start update-updater.bat
 exit
 
 
