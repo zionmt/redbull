@@ -41,6 +41,7 @@ echo Updates
 echo ______________________________
 echo.
 echo Everything has been integrated into the main repo, except the menu storage. That will come soon.
+echo When installing the menus, you no longer need to restart the panel. It does that for you.
 echo ______________________________
 echo.
 echo Menus
@@ -70,9 +71,9 @@ move redbull-menus menucache
 echo dont worry the menus are just stored here, if this folder is deleted then the menus get reinstalled > whatisthisfolderisitavirus.txt
 move whatisthisfolderisitavirus.txt menucache
 cls
-echo Restart panel.
-pause
-exit
+echo The panel will restart in 2 seconds.
+timeout /t 2 /nobreak >nul
+goto r
 
 :cachecheckping
 if not exist menucache goto makecachefolder
