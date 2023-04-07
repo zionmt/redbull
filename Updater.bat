@@ -19,7 +19,6 @@ rmdir /s /q redbull
 :selfupdate
 git clone https://github.com/ifindu19/redbull.git
 move "redbull\Updater.bat" %cd%
-move "redbull\update-updater.bat" %cd%
 rmdir /s /q redbull
 start update-updater.bat
 exit

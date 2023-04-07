@@ -1,6 +1,4 @@
 @echo off
-:find updaterupdater
-if exist "update-updater.bat" del /f update-updater.bat else goto r
 :findinstaller
 if not exist "Redbull-Installer.bat" cls & goto r else goto deleteinstaller
 :deleteinstaller
