@@ -1,4 +1,13 @@
 @echo off
+:findupdater
+if exist "update.bat" goto deleteupdater else cls & goto r
+if exist "Updater.bat" goto deleteupdater else cls & goto r
+:deleteupdater
+echo Redbull Panel has detected the updater in this folder. Would you like to delete it? (it is no longer needed)
+echo (Y/N)
+set /p d=
+IF %d%==Y goto delup
+IF %d%==N goto r
 :findinstaller
 if not exist "Redbull-Installer.bat" cls & goto r else goto deleteinstaller
 :deleteinstaller
@@ -11,6 +20,11 @@ IF %c%==N goto r
 :confdel
 del /f "Redbull-Installer.bat"
 if exist "Redbull-Installer.bat" echo Could not be deleted successfully. Ensure it is closed and manually delete.
+echo The installer has been deleted. Starting the panel now.
+:delup
+del /f "Updater.bat"
+if exist "update.bat" del /f "update.bat"
+if exist "Updater.bat" or "update.bat" echo Could not be deleted successfully. Ensure it is closed and manually delete.
 echo The installer has been deleted. Starting the panel now.
 timeout /t 2 /nobreak >nul
 goto r
@@ -25,7 +39,7 @@ echo   88P'  `d8b_,dPd8P' ?88    88P `?8bd88   88 ?88  ?88
 echo  d88     88b    88b  ,88b  d88,  d88?8(  d88  88b  88b                               
 echo d88'     `?888P'`?88P'`88bd88'`?88P'`?88P'?8b  88b  88b                              
 timeout /t 2 /nobreak >nul
-echo Welcome to the Redbull Panel v4
+echo Welcome to the Redbull Panel v4.1.0
 echo A fine release by KitchenerMT
 timeout /t 1 /nobreak >nul
 :a
@@ -40,8 +54,7 @@ echo.
 echo Updates
 echo ______________________________
 echo.
-echo Everything has been integrated into the main repo, except the menu storage. That will come soon.
-echo When installing the menus, you no longer need to restart the panel. It does that for you.
+echo Update menu integrated into Panel.
 echo ______________________________
 echo.
 echo Menus
