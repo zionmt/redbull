@@ -54,6 +54,7 @@ echo ______________________________
 echo.
 echo Update menu integrated into Panel. (4.1.0)
 echo Added a version checker
+echo No more installer.
 echo ______________________________
 echo.
 echo Menus
