@@ -1,7 +1,6 @@
 @echo off
 :findupdater
-if exist "update.bat" goto deleteupdater else cls & goto r
-if exist "Updater.bat" goto deleteupdater else cls & goto r
+if not exist "Updater.bat" cls & goto r else goto deleteupdater
 :deleteupdater
 echo Redbull Panel has detected the updater in this folder. Would you like to delete it? (it is no longer needed)
 echo (Y/N)
@@ -23,9 +22,8 @@ if exist "Redbull-Installer.bat" echo Could not be deleted successfully. Ensure 
 echo The installer has been deleted. Starting the panel now.
 :delup
 del /f "Updater.bat"
-if exist "update.bat" del /f "update.bat"
-if exist "Updater.bat" or "update.bat" echo Could not be deleted successfully. Ensure it is closed and manually delete.
-echo The installer has been deleted. Starting the panel now.
+if exist "Updater.bat" echo Could not be deleted successfully. Ensure it is closed and manually delete.
+echo The updater has been deleted. Starting the panel now.
 timeout /t 2 /nobreak >nul
 goto r
 :r
@@ -54,7 +52,8 @@ echo.
 echo Updates
 echo ______________________________
 echo.
-echo Update menu integrated into Panel.
+echo Update menu integrated into Panel. (4.1.0)
+echo Added a version checker
 echo ______________________________
 echo.
 echo Menus
@@ -63,6 +62,7 @@ echo.
 echo 1. Pinger
 echo 2. SSH Remote Access
 echo 3. Update
+echo 4. Check Version
 echo ______________________________
 echo.
 echo Commands
@@ -74,6 +74,7 @@ set /p a=
 IF %a%==1 goto cachecheckping
 IF %a%==2 goto cachecheckssh
 IF %a%==3 start update.bat
+IF %a%==4 goto :checkversion
 if %a%==CLS cls & echo Panel cleaned. & goto a
 
 :makecachefolder
@@ -102,8 +103,27 @@ goto r
 
 :startssh
 start menucache\redbull-menus\sshlogin.bat
-goto r            
-                                                                                
+goto r
+
+:checkversion
+if not exist repofolder mkdir repofolder & goto mkclone else goto statuscheck
+
+:mkclone
+cd %cd%\repofolder
+git clone https://github.com/ifindu19/redbull.git
+cd redbull
+goto statuscheck
+:statuscheck            
+cls 
+echo If it says "Your branch is up to date" then your on the current version (v4.2.0)
+echo If it doesnt, your not on the latest version.
+timeout /t 1 /nobreak >nul
+git status
+timeout /t 2 /nobreak >nul
+echo Press a key to go back to menu.
+pause >nul
+cls
+goto r                                                                               
 
                                                                                      
                                                                                      
